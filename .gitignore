@@ -1,0 +1,18 @@
+# Build Folders
+dist/
+*.egg-info/
+build/
+
+# Cache Folders
+__pycache__/
+cache/
+.pytest_cache/
+.mypy_cache/
+
+# Testing and Coverage
+.coverage
+.hypothesis/
+
+# Documentation
+docs/
+

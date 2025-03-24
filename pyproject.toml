@@ -1,0 +1,54 @@
+[project]
+name = "thscraper"
+version = "0.0.1"
+authors = [
+  { name="Taylor H. Morris", email="18409399+taylorhmorris@users.noreply.github.com" },
+]
+description = "Gather data from various language resource websites and APIs."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License"
+]
+keywords = ["language", "education"]
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/taylorhmorris/thscraper"
+Issues = "https://github.com/taylorhmorris/thscraper/issues"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "black",
+  "pylint",
+  "mypy",
+  "flake8",
+  "bandit",
+  "pyroma",
+  "isort >= 5.0.0",
+  "coverage",
+  "hypothesis"
+]
+types = [
+  "types-beautifulsoup4",
+  "types-requests"
+]
+docs = [
+  "pdoc3"
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
