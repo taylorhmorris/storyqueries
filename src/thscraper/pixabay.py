@@ -12,6 +12,21 @@ from query_and_cache.parser import Parser
 from query_and_cache.query import Query, QueryConfig
 
 
+class PixabayRequester(APIRequester):
+    """Requester class to handle requests to a Pixabay API endpoint."""
+
+    def __init__(self, url: str, api_key: str | None = None, lang: str = "fr"):
+        super().__init__(url, api_key)
+        self.logger = self.logger.getChild("Pixabay")
+        self.lang = lang
+
+    def format_url(self, query_string: str) -> str:
+        """Format the URL with the given query_string and API key if provided."""
+        return self.base_url.format(
+            search_string=query_string, api_key=self.api_key, lang=self.lang
+        )
+
+
 class PixabayParser(Parser):
     """Parser for Pixabay API response"""
 
@@ -32,7 +47,7 @@ class QueryPixabay(Query):
         url_extra = "&image_type=photo&safesearch=true"
         url = url_root + url_query + url_extra
         self.lang = lang
-        requester = APIRequester(url)
+        requester = PixabayRequester(url, api_key, lang)
         cache_path = os.path.join(cache_path, "pixabay")
         cache = JSONCache(cache_dir=cache_path)
         parser = PixabayParser()
