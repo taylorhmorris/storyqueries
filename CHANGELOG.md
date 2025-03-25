@@ -10,5 +10,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
-[unreleased]: https://github.com/taylorhmorris/thscraper/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/taylorhmorris/thscraper/releases/tag/v0.0.1
+[unreleased]: https://github.com/taylorhmorris/storyqueries/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/taylorhmorris/storyqueries/releases/tag/v0.0.1

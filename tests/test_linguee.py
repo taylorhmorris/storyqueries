@@ -2,7 +2,7 @@
 
 from unittest import mock
 
-from thscraper.linguee import QueryLinguee
+from storyqueries.linguee import QueryLinguee
 
 
 def test_linguee_creates():

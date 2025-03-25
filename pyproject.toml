@@ -1,5 +1,5 @@
 [project]
-name = "thscraper"
+name = "storyqueries"
 version = "0.0.1"
 authors = [
   { name="Taylor H. Morris", email="18409399+taylorhmorris@users.noreply.github.com" },
@@ -24,8 +24,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/taylorhmorris/thscraper"
-Issues = "https://github.com/taylorhmorris/thscraper/issues"
+Homepage = "https://github.com/taylorhmorris/storyqueries"
+Issues = "https://github.com/taylorhmorris/storyqueries/issues"
 
 [project.optional-dependencies]
 dev = [

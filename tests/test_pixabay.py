@@ -2,7 +2,7 @@
 
 from unittest import mock
 
-from thscraper.pixabay import QueryPixabay
+from storyqueries.pixabay import QueryPixabay
 
 
 def test_pixabay_creates():
