@@ -5,9 +5,7 @@ import os
 from typing import no_type_check
 
 from bs4 import BeautifulSoup
-from pyquaca.json_cache import JSONCache
-from pyquaca.parser import Parser
-from pyquaca.query import Query, QueryConfig
+from pyquaca import JSONCache, Parser, Query, QueryConfig
 from requests import Response
 
 
