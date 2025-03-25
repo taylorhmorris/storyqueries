@@ -20,7 +20,7 @@ classifiers = [
 ]
 keywords = ["language", "education"]
 dependencies = [
-  "query_and_cache @ git+ssh://git@github.com/taylorhmorris/query_and_cache.git@v0.0.3"
+  "pyquaca @ git+ssh://git@github.com/taylorhmorris/pyquaca.git@v0.0.3"
 ]
 
 [project.urls]

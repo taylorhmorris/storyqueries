@@ -6,10 +6,10 @@ import os
 from typing import Any
 
 import requests
-from query_and_cache.api_requester import APIRequester
-from query_and_cache.json_cache import JSONCache
-from query_and_cache.parser import Parser
-from query_and_cache.query import Query, QueryConfig
+from pyquaca.api_requester import APIRequester
+from pyquaca.json_cache import JSONCache
+from pyquaca.parser import Parser
+from pyquaca.query import Query, QueryConfig
 
 
 class PixabayRequester(APIRequester):
