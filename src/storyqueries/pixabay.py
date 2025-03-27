@@ -8,6 +8,8 @@ from typing import Any
 import requests
 from pyquaca import APIRequester, JSONCache, Parser, Query, QueryConfig
 
+from storyqueries import interactive
+
 
 class PixabayRequester(APIRequester):
     """Requester class to handle requests to a Pixabay API endpoint."""
@@ -55,3 +57,7 @@ class QueryPixabay(Query):
             "parser": parser,
         }
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryPixabay, needs_api_key=True, needs_lang=True)
