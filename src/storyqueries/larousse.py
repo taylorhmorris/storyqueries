@@ -1,6 +1,9 @@
+"""Larousse Query Class"""
+
 import logging
 import os
 import unicodedata
+from typing import no_type_check
 
 import bs4
 from pyquaca import JSONCache, Parser, Query, QueryConfig
@@ -8,6 +11,9 @@ from requests import Response
 
 
 class LarousseParser(Parser):
+    """Parse the response from Larousse"""
+
+    @no_type_check
     def parse(self, raw: Response) -> dict:
         """Parse the raw data from Larousse"""
         soup = bs4.BeautifulSoup(raw.text, "html.parser")
@@ -22,9 +28,9 @@ class LarousseParser(Parser):
                     word = str(content)
                     break
             if word and "," in word:
-                word = word.split(",")[0]
-            logging.info(f"Using base form: {word}")
-        except IndexError as e:
+                word = word.split(",", maxsplit=1)[0]
+            logging.info("Using base form: %s", word)
+        except IndexError:
             word = None
         try:
             grammar = soup(class_="CatgramDefinition")[0].find(
@@ -49,7 +55,7 @@ class LarousseParser(Parser):
             locutions = soup.find_all(class_="Locution")
             expressions = []
             for x in locutions:
-                express = dict()
+                express = {}
                 expression_text = x.find(class_="AdresseLocution").find(
                     string=True, recursive=False
                 )
@@ -99,7 +105,7 @@ class LarousseParser(Parser):
 class QueryLarousse(Query):
     """Query Configured to send queries to Larousse"""
 
-    def __init__(self, check_cache=True, cache_path="cache"):
+    def __init__(self, check_cache: bool = True, cache_path: str = "cache") -> None:
         cache = JSONCache(os.path.join(cache_path, "larousse"))
         config: QueryConfig = {
             "check_cache": check_cache,
