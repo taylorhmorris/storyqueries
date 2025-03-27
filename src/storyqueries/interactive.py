@@ -26,7 +26,14 @@ def interactive(
     else:
         lang = None
 
-    query = query_type(lang=lang, api_key=api_key)
+    if needs_api_key and needs_lang:
+        query = query_type(lang=lang, api_key=api_key)
+    elif needs_lang:
+        query = query_type(lang=lang)
+    elif needs_api_key:
+        query = query_type(api_key=api_key)
+    else:
+        query = query_type()
 
     while True:
         search_string = input("Enter the search string (or 'exit' to quit): ")
