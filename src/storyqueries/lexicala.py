@@ -48,12 +48,12 @@ class LexicalaParser(Parser):
         try:
             data = json.loads(raw.content.decode("utf-8"))
             return data
-        except Exception as e:
+        except Exception as e:  # pylint: disable=broad-except
             self.logger.error("Failed to parse response: %s", e)
             return None
 
 
-class QueryLexicala(Query):
+class QueryLexicala(Query):  # pylint: disable=too-few-public-methods
     """Query Configured to send queries to Lexicala"""
 
     def __init__(
@@ -63,7 +63,8 @@ class QueryLexicala(Query):
         cache_path: str = "cache",
         check_cache: bool = True,
     ) -> None:
-        url = "https://lexicala1.p.rapidapi.com/search?source=global&language={lang}&text={search_string}"
+        root_url = "https://lexicala1.p.rapidapi.com/search"
+        url = root_url + "?source=global&language={lang}&text={search_string}"
         self.lang = lang
         cache_path = os.path.join(cache_path, "lexicala")
         config: QueryConfig = {
