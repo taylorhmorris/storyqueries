@@ -7,6 +7,8 @@ from typing import no_type_check
 import requests
 from pyquaca import APIRequester, JSONCache, Parser, Query, QueryConfig
 
+from storyqueries import interactive
+
 
 class LexicalaRequester(APIRequester):
     """Requests API data from Lexicala"""
@@ -76,3 +78,7 @@ class QueryLexicala(Query):  # pylint: disable=too-few-public-methods
             "cache_path": cache_path,
         }
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryLexicala, needs_api_key=True, needs_lang=False)
