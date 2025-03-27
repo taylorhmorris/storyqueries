@@ -8,6 +8,8 @@ import bs4
 from pyquaca import JSONCache, Parser, Query, QueryConfig
 from requests import Response
 
+from storyqueries import interactive
+
 
 class LarousseParser(Parser):
     """Parse the response from Larousse"""
@@ -153,3 +155,7 @@ class QueryLarousse(Query):  # pylint: disable=too-few-public-methods
         }
         url = "https://www.larousse.fr/dictionnaires/francais/{search_string}/"
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryLarousse)
