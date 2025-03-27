@@ -25,6 +25,8 @@ pip install git+ssh://git@github.com/taylorhmorris/storyqueries.git
 
 - Pixabay
 - Linguee (French)
+- Lexicala (French)
+- Larousse (French)
 
 ## License
 
