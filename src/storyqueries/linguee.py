@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 from pyquaca import JSONCache, Parser, Query, QueryConfig
 from requests import Response
 
+from storyqueries import interactive
+
 
 class LingueeParser(Parser):
     """Parser for Linguee API response"""
@@ -67,3 +69,7 @@ class QueryLinguee(Query):
             "cache": cache,
         }
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryLinguee)
