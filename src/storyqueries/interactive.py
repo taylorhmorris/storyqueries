@@ -12,19 +12,17 @@ def interactive(
     needs_lang: bool = False,
 ) -> None:
     """Terminal Interface queries"""
+    api_key = None
     if needs_api_key:
         api_key = input("Enter your API key: ")
         while not api_key or len(api_key) == 0:
             api_key = input("Please enter a valid API key: ")
-    else:
-        api_key = None
 
+    lang = None
     if needs_lang:
         lang = input("Enter the language (default: 'fr'): ")
         if not lang or len(lang) == 0:
             lang = "fr"
-    else:
-        lang = None
 
     if needs_api_key and needs_lang:
         query = query_type(lang=lang, api_key=api_key)
