@@ -1,5 +1,6 @@
 """Larousse Query Class"""
 
+# type: ignore[unused-ignore]
 import os
 import unicodedata
 from typing import Any, no_type_check
