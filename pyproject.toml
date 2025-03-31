@@ -32,7 +32,7 @@ dev = [
   "pytest",
   "black",
   "pylint",
-  "mypy",
+  "mypy == 1.15.0",
   "flake8",
   "bandit",
   "pyroma",
