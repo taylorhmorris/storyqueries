@@ -6,10 +6,9 @@ import os
 from typing import Any
 
 import requests
-from query_and_cache.api_requester import APIRequester
-from query_and_cache.json_cache import JSONCache
-from query_and_cache.parser import Parser
-from query_and_cache.query import Query, QueryConfig
+from pyquaca import APIRequester, JSONCache, Parser, Query, QueryConfig
+
+from storyqueries import interactive
 
 
 class PixabayRequester(APIRequester):
@@ -58,3 +57,7 @@ class QueryPixabay(Query):
             "parser": parser,
         }
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryPixabay, needs_api_key=True, needs_lang=True)

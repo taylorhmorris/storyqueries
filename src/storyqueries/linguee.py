@@ -5,10 +5,10 @@ import os
 from typing import no_type_check
 
 from bs4 import BeautifulSoup
-from query_and_cache.json_cache import JSONCache
-from query_and_cache.parser import Parser
-from query_and_cache.query import Query, QueryConfig
+from pyquaca import JSONCache, Parser, Query, QueryConfig
 from requests import Response
+
+from storyqueries import interactive
 
 
 class LingueeParser(Parser):
@@ -69,3 +69,7 @@ class QueryLinguee(Query):
             "cache": cache,
         }
         super().__init__(url, config)
+
+
+if __name__ == "__main__":
+    interactive.interactive(QueryLinguee)
